@@ -39,10 +39,10 @@ class Student:
             return 'УПС...Так нельзя!!'
         return self.get_average_rate() < other.get_average_rate()
 
-    def __gt__(self, other):
+    def __le__(self, other):
         if not isinstance(other, Student):
             return 'УПС...Так нельзя!!'
-        return self.get_average_rate() > other.get_average_rate()
+        return self.get_average_rate() <= other.get_average_rate()
 
     def __eq__(self, other):
         if not isinstance(other, Student):
@@ -78,10 +78,10 @@ class Lecturer(Mentor):
             return 'УПС...Так нельзя!!'
         return self.get_average_rate() < other.get_average_rate()
 
-    def __gt__(self, other):
+    def __le__(self, other):
         if not isinstance(other, Student):
             return 'УПС...Так нельзя!!'
-        return self.get_average_rate() > other.get_average_rate()
+        return self.get_average_rate() <= other.get_average_rate()
 
     def __eq__(self, other):
         if not isinstance(other, Student):
@@ -98,21 +98,7 @@ class Reviewer(Mentor):
                 student.grades[course] = [grade]
         else:
             return 'Что-то пошло не так!'
-
-    def __lt__(self, other):
-        if not isinstance(other, Student):
-            return 'УПС...Так нельзя!!'
-        return self.get_average_rate() < other.get_average_rate()
-
-    def __gt__(self, other):
-        if not isinstance(other, Student):
-            return 'УПС...Так нельзя!!'
-        return self.get_average_rate() > other.get_average_rate()
-
-    def __eq__(self, other):
-        if not isinstance(other, Student):
-            return 'УПС...Так нельзя!!'
-        return self.get_average_rate() == other.get_average_rate()
+            
 
     def __str__(self):
         return f"Имя: {self.name}\nФамилия: {self.surname}\n"
